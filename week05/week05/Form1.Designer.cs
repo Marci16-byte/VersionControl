@@ -34,7 +34,10 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tick_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Portfolio = new System.Windows.Forms.ListBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -76,15 +79,34 @@
             this.Tick_id.HeaderText = "Tick_id";
             this.Tick_id.Name = "Tick_id";
             // 
+            // Portfolio
+            // 
+            this.Portfolio.FormattingEnabled = true;
+            this.Portfolio.Location = new System.Drawing.Point(586, 99);
+            this.Portfolio.Name = "Portfolio";
+            this.Portfolio.Size = new System.Drawing.Size(158, 277);
+            this.Portfolio.TabIndex = 1;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(47, 304);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(465, 150);
+            this.dataGridView2.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.Portfolio);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -97,6 +119,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Volume;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tick_id;
+        private System.Windows.Forms.ListBox Portfolio;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 
