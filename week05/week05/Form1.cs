@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using week05.Entities;
 
 namespace week05
 {
@@ -22,5 +23,13 @@ namespace week05
 
         }
 
+        List<PortfolioItem> Portfolios = new List<PortfolioItem>();
 
+        public Form1()
+        {
+           
+        }
+
+             
     }
+}
