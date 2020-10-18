@@ -111,7 +111,7 @@
             this.chartRateData.DataSource = this.getExchangeRatesResponseBindingSource;
             legend2.Name = "Legend1";
             this.chartRateData.Legends.Add(legend2);
-            this.chartRateData.Location = new System.Drawing.Point(502, 103);
+            this.chartRateData.Location = new System.Drawing.Point(492, 101);
             this.chartRateData.Name = "chartRateData";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
