@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -40,9 +41,16 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.chartRateData = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.getCurrentExchangeRatesResponseBodyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getExchangeRatesResponseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getCurrentExchangeRatesResponseBodyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getExchangeRatesResponseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -87,6 +95,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dataGridView1.Location = new System.Drawing.Point(38, 101);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(426, 370);
@@ -96,9 +108,10 @@
             // 
             chartArea2.Name = "ChartArea1";
             this.chartRateData.ChartAreas.Add(chartArea2);
+            this.chartRateData.DataSource = this.getExchangeRatesResponseBindingSource;
             legend2.Name = "Legend1";
             this.chartRateData.Legends.Add(legend2);
-            this.chartRateData.Location = new System.Drawing.Point(502, 101);
+            this.chartRateData.Location = new System.Drawing.Point(502, 103);
             this.chartRateData.Name = "chartRateData";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
@@ -107,6 +120,29 @@
             this.chartRateData.Size = new System.Drawing.Size(451, 370);
             this.chartRateData.TabIndex = 5;
             this.chartRateData.Text = "chart2";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Date";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Currency";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Value";
+            this.Column3.Name = "Column3";
+            // 
+            // getCurrentExchangeRatesResponseBodyBindingSource
+            // 
+            this.getCurrentExchangeRatesResponseBodyBindingSource.DataSource = typeof(week06.MnbServiceReference.GetCurrentExchangeRatesResponseBody);
+            // 
+            // getExchangeRatesResponseBindingSource
+            // 
+            this.getExchangeRatesResponseBindingSource.DataSource = typeof(week06.MnbServiceReference.GetExchangeRatesResponse);
             // 
             // Form1
             // 
@@ -124,6 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRateData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getCurrentExchangeRatesResponseBodyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getExchangeRatesResponseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,6 +174,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRateData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.BindingSource getExchangeRatesResponseBindingSource;
+        private System.Windows.Forms.BindingSource getCurrentExchangeRatesResponseBodyBindingSource;
     }
 }
 
