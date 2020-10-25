@@ -10,7 +10,7 @@ namespace week07_x8b4iu.Entities
     {
         public int Age { get; set; }
         public int NbrOfChildren { get; set; }
-        public double BPobability { get; set; }
-        public double BProbability { get; internal set; }
+        public double pBirth { get; set; }
+        
     }
 }

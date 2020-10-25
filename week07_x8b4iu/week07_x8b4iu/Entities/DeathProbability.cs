@@ -10,7 +10,7 @@ namespace week07_x8b4iu.Entities
     {
         public Gender Gender { get; set; }
         public int Age { get; set; }
-        public double DProbability { get; set; }
+        public double pDeath { get; set; }
 
     }
 }

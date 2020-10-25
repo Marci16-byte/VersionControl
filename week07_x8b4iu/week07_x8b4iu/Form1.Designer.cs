@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -81,12 +81,12 @@
             this.listBox1.Size = new System.Drawing.Size(610, 381);
             this.listBox1.TabIndex = 4;
             // 
-            // textBox1
+            // richTextBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(61, 20);
-            this.textBox1.TabIndex = 5;
+            this.richTextBox1.Location = new System.Drawing.Point(72, 21);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(61, 20);
+            this.richTextBox1.TabIndex = 5;
             // 
             // textBox2
             // 
@@ -101,7 +101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox richTextBox1;
         private System.Windows.Forms.TextBox textBox2;
     }
 }

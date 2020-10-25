@@ -17,42 +17,54 @@ namespace week07_x8b4iu
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        List<int> Fiúk = new List<int>();
+        List<int> Lányok = new List<int>();
+
         Random rng = new Random(1234);
+        private object numericUpDown1;
+
         public Form1()
         {
             InitializeComponent();
 
-            Population = GetPopulation(@"C:\Temp\nép.csv");
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            richTextBox1.Text = @"C:\Temp\nép-teszt.csv";
 
-            for (int year = 2005; year <= 2024; year++)
+            Population = GetPopulation(richTextBox1.Text);
+            BirthProbabilities = GetBirthProbability(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbability(@"C:\Temp\halál.csv");
+        }
+
+        private void Simulation()
+        {
+            richTextBox1.Clear();
+            for (int year = 2005; year <= numericUpDown1.Value; year++)
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
-                    SimStep(year, i);
+                    SimStep(year, Population[i]);
                 }
 
                 int nbrOfMales = (from x in Population
                                   where x.Gender == Gender.Male && x.IsAlive
                                   select x).Count();
+
                 int nbrOfFemales = (from x in Population
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
-                Console.WriteLine(
-                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+                Fiúk.Add(nbrOfMales);
+                Lányok.Add(nbrOfFemales);
+                //Console.WriteLine(string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+                DisplayResult(year, nbrOfFemales, nbrOfMales);
             }
         }
 
-        private void SimStep(int year, int i)
+        public void DisplayResult(int year, int nbrf, int nbrm)
         {
-            throw new NotImplementedException();
+            richTextBox1.Text += "Szimulációs év: " + year.ToString() + "\n\tLányok: " + nbrf.ToString() + "\n\tFiúk: " + nbrm.ToString() + "\n\n";
         }
-
         public List<Person> GetPopulation(string csvpath)
         {
             List<Person> population = new List<Person>();
-
             using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
             {
                 while (!sr.EndOfStream)
@@ -70,49 +82,47 @@ namespace week07_x8b4iu
             return population;
         }
 
-        public List<BirthProbability> GetBirthProbabilities(string csvpath)
+        public List<BirthProbability> GetBirthProbability(string csvpath)
         {
-            List<BirthProbability> birthprobabilities = new List<BirthProbability>();
-
+            List<BirthProbability> birthProbabilities = new List<BirthProbability>();
             using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
             {
                 while (!sr.EndOfStream)
                 {
                     var line = sr.ReadLine().Split(';');
-                    birthprobabilities.Add(new BirthProbability()
+                    birthProbabilities.Add(new BirthProbability()
                     {
                         Age = int.Parse(line[0]),
                         NbrOfChildren = int.Parse(line[1]),
-                        BProbability = double.Parse(line[2])
+                        pBirth = double.Parse(line[2])
                     });
                 }
             }
 
-            return birthprobabilities;
+            return birthProbabilities;
         }
 
-        public List<DeathProbability> GetDeathProbabilities(string csvpath)
+        public List<DeathProbability> GetDeathProbability(string csvpath)
         {
-            List<DeathProbability> deathprobabilities = new List<DeathProbability>();
-
+            List<DeathProbability> deathProbabilities = new List<DeathProbability>();
             using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
             {
                 while (!sr.EndOfStream)
                 {
                     var line = sr.ReadLine().Split(';');
-                    deathprobabilities.Add(new DeathProbability()
+                    deathProbabilities.Add(new DeathProbability()
                     {
                         Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
                         Age = int.Parse(line[1]),
-                        DProbability = double.Parse(line[2])
+                        pDeath = double.Parse(line[2])
                     });
                 }
             }
 
-            return deathprobabilities;
+            return deathProbabilities;
         }
 
-        private void SimStep(int year, Person person)
+        public void SimStep(int year, Person person)
         {
             if (!person.IsAlive) return;
 
@@ -120,7 +130,7 @@ namespace week07_x8b4iu
 
             double pDeath = (from x in DeathProbabilities
                              where x.Gender == person.Gender && x.Age == age
-                             select x.DProbability).FirstOrDefault();
+                             select x.pDeath).FirstOrDefault();
 
             if (rng.NextDouble() <= pDeath)
                 person.IsAlive = false;
@@ -129,7 +139,7 @@ namespace week07_x8b4iu
             {
                 double pBirth = (from x in BirthProbabilities
                                  where x.Age == age
-                                 select x.BProbability).FirstOrDefault();
+                                 select x.pBirth).FirstOrDefault();
 
                 if (rng.NextDouble() <= pBirth)
                 {
@@ -142,8 +152,22 @@ namespace week07_x8b4iu
             }
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulation();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.Text = ofd.FileName;
+                Population = GetPopulation(richTextBox1.Text);
+            }
+        }
     }
 }
-    
+
 
