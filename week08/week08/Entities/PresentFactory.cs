@@ -8,7 +8,7 @@ using week08.Abstractions;
 
 namespace week08.Entities
 {
-    class PresentFactory : IToyFactory
+    public class PresentFactory : IToyFactory
     {
         public Color RibbonColor { get; set; }
 
