@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using week08.Abstractions;
+
 namespace week08.Entities
 {
     class Present
@@ -12,6 +13,8 @@ namespace week08.Entities
         public SolidBrush RibbonColor { get; private set; }
 
         public SolidBrush BoxColor { get; private set; }
+        public float Width { get; private set; }
+        public float Height { get; private set; }
 
         public Present(Color ribbon, Color box)
         {

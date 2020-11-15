@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using week08.Abstractions;
 
 namespace week08.Entities
 {
-    class PresentFactory
+    class PresentFactory : IToyFactory
     {
         public Color RibbonColor { get; set; }
 
