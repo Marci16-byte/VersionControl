@@ -42,7 +42,7 @@ namespace week08
             var toy = Factory.CreateNew();
             _toys.Add((Toy)toy);
             toy.Left = -toy.Width;
-            mainPanel.Controls.Add(toy);
+            mainpanel.Controls.Add(toy);
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace week08
             if (maxPosition > 1000)
             {
                 var oldestBall = _toys[0];
-                mainPanel.Controls.Remove(oldestBall);
+                mainpanel.Controls.Remove(oldestBall);
                 _toys.Remove(oldestBall);
             }
         }
@@ -107,4 +107,4 @@ namespace week08
         }
     }
 }
-}
+

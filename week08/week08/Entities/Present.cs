@@ -8,7 +8,7 @@ using week08.Abstractions;
 
 namespace week08.Entities
 {
-    class Present
+    class Present : Toy
     {
         public SolidBrush RibbonColor { get; private set; }
 
