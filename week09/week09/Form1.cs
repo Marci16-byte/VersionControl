@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using week09.Controllers;
 
 namespace week09
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-           private AccountController _controller = new AccountController();
+        private AccountController _controller = new AccountController();
 
         private bool passwordCheckPassed;
         public bool PasswordCheckPassed
@@ -57,6 +56,4 @@ namespace week09
             }
         }
     }
-
-
 }
